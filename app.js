@@ -22,7 +22,7 @@ function printOdds(count){
         
     }
 }
-console.log(printOdds(-30));
+printOdds(24);
 
 // Exercise 2 Section
 console.log("EXERCISE 2:\n==========\n");
@@ -48,7 +48,7 @@ function checkAge(userName, age){
     }
 }
 
-console.log(checkAge("Beanie", 5));
+checkAge("Beanie", 5);
 
 // Exercise 3 Section
 console.log("EXERCISE 3:\n==========\n");
@@ -81,12 +81,60 @@ function whichQuadrant(x, y){
 
 }
 
-console.log(whichQuadrant(44, 0));
+whichQuadrant(44, 0);
 //Had to look up what is the Cartesian Plane.
 
 //Exercise 4 Section
 console.log("EXERCISE 4:\n==========\n");
-function triangleType(num1, num2, num3){
+function triangleType(side1, side2, side3){
+    if(side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2){
+        console.log("Great Let's see what type of Triangle this is!")
+    }
+    else{
+        console.log("Invalid Triangle.")
+    }
+    console.log("==========");
+
+    if(side1 == side2 && side2 == side3){
+        console.log("This is an Equilateral Triangle.");
+    }
+    else if(side1 == side2 || side2 == side3 || side3 == side1){
+        console.log("This is an Isosceles Triangle.");
+    }
+    else (side1 != side2 && side2!= side3)
+    {
+        console.log("This is a Scalene Triangle.")
+    }
+}
+triangleType(3, 4, 5);
+
+//Exercise 5 Section
+console.log("==========");
+function dataPlanStatus(planLimit, day, usage){
+    let planLength = 30;
+    let currentAverage = usage / day;
+    let projectedaverage = planLimit / planLength;
+    let remainingData = planLimit - usage;  
+    let remainingDays = planLength - day;
+    let projectedUsage = remainingDays * currentAverage;
+    let statusMessage;
+
+
     
+    console.log(`${day} days used, You have ${remainingDays} day(s) remaining.`);
+    console.log(`Average projected use: ${planLimit / day} GB/day`);
+
+    if (currentAverage > projectedaverage){
+        statusMessage = "EXCEEDING"
+    } else if (currentAverage < projectedaverage) {
+        statusMessage = "UNDER"
+    }else {
+        statusMessage = "AT AVERAGE"
+    }
+    console.log(`You are ${statusMessage} your DataLimit, your average daily use is ${currentAverage} GB/day,\ncontinuing this usage, you will have ${planLimit - (usage + projectedUsage)} GB left from your datalimit.`);
+
+
+
 }
 
+dataPlanStatus(50, 25, 25);
