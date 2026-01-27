@@ -22,13 +22,13 @@ function printOdds(count){
         
     }
 }
-printOdds(24);
+printOdds(-12);
 
 // Exercise 2 Section
 console.log("EXERCISE 2:\n==========\n");
 function checkAge(userName, age){
-    let aboveSixteen;
-    let belowSixteen;
+    let aboveSixteen = (age >= 16);
+    let belowSixteen = (age < 16);
 
     if(age == null && userName == null){
         console.log("Enter your name and age please:")
@@ -40,15 +40,15 @@ function checkAge(userName, age){
         console.log("Please Enter Your Name:")
     }
 
-    if(age <= 16){
+    if(belowSixteen){
         console.log(`Sorry ${userName}, but you need to wait until you're 16.`);
     }
-    else if(age >= 16){
+    else if(aboveSixteen){
         console.log(`Congrats ${userName}, you can drive!`);
     }
 }
 
-checkAge("Beanie", 5);
+checkAge("Beanie", 22);
 
 // Exercise 3 Section
 console.log("EXERCISE 3:\n==========\n");
@@ -71,12 +71,12 @@ function whichQuadrant(x, y){
     }
     else if (x == 0)
     {
-        console.log(`${x}, ${y} is on the x axis.`)
+        console.log(`${x}, ${y} is on the y axis.`)
 
     }
     else if (y == 0)
     {
-        console.log(`${x}, ${y} is on the y axis.`)
+        console.log(`${x}, ${y} is on the x axis.`)
     }
 
 }
@@ -87,26 +87,29 @@ whichQuadrant(44, 0);
 //Exercise 4 Section
 console.log("EXERCISE 4:\n==========\n");
 function triangleType(side1, side2, side3){
-    if(side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2){
+
+    let validTriangle = (side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2)
+    if(validTriangle){
         console.log("Great Let's see what type of Triangle this is!")
+        {
+                if(side1 == side2 && side2 == side3){
+                    console.log("This is an Equilateral Triangle.");
+                }
+                else if(side1 == side2 || side2 == side3 || side3 == side1){
+                    console.log("This is an Isosceles Triangle.");
+                }
+                else (side1 != side2 && side2!= side3)
+                {
+                    console.log("This is a Scalene Triangle.")
+                }
+        }
     }
     else{
         console.log("Invalid Triangle.")
     }
-    console.log("==========");
-
-    if(side1 == side2 && side2 == side3){
-        console.log("This is an Equilateral Triangle.");
-    }
-    else if(side1 == side2 || side2 == side3 || side3 == side1){
-        console.log("This is an Isosceles Triangle.");
-    }
-    else (side1 != side2 && side2!= side3)
-    {
-        console.log("This is a Scalene Triangle.")
-    }
+    
 }
-triangleType(3, 4, 5);
+triangleType(4,6,5);
 
 //Exercise 5 Section
 console.log("==========");
